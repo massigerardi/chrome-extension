@@ -1,0 +1,25 @@
+{
+   "background": {
+      "scripts": [ "background.js" ]
+   },
+   "browser_action": {
+      "default_icon": "img/off128.png"
+   },
+   "content_scripts": [ {
+      "css": [ "style.css" ],
+      "js": [ "jquery-2.1.1.min.js", "content-script.js" ],
+      "matches": [ "*://*.amazon.com/*", "*://*.amazon.co.uk/*" ],
+      "run_at": "document_end"
+   } ],
+   "description": "",
+   "icons": {
+      "128": "img/on128.png",
+      "16": "img/on128.png",
+      "48": "img/on128.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAko4rW403eAjDikH7Ppr0xc1A+rwIutI/0oDg8OVa5habvCPqN1psh3FUWfZH+5KCb8C2FOQ6IO13nTMczEfzM6X/PjgzeWrP79dmFVH8RRYZuMxS6r6j9+T3jpZhC9HWRy3xW9+/6oAc7LiGcjtIOtUl3USO4d0p1/YGvmDR2JefH/WSec2Qkxn1YnoK8egAzhYdwuPV/Bn3kWzZYA3cZCaJhxhsiaZaycDF0GI5IcIT6PHay9/rQqtiLnpF612luzClrexqU/5QsK1hkwaIWKtAUpbwor/MBsQkLjI+FyjtmL5xhDT2Bly4wP5ST/BP5wTUr80VMbl6pZ43P4NaKwIDAQAB",
+   "manifest_version": 2,
+   "name": "DS Amazon Quick View",
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "1.1"
+}

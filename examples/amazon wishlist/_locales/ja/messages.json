@@ -1,0 +1,11 @@
+{
+   "uwl_ext_chrome_browseraction": {
+      "message": "Amazon.co.jpのほしい物リストに追加"
+   },
+   "uwl_ext_chrome_description": {
+      "message": "ほかのサイトの商品をAmazon.co.jpのほしい物リストに追加できます"
+   },
+   "uwl_ext_chrome_name": {
+      "message": "Amazon.co.jpのほしい物リストに追加"
+   }
+}

@@ -1,0 +1,44 @@
+{
+   "extDesc": {
+      "description": "Extension description",
+      "message": "Makes Gmail™ your default email app (original ext repackaged without toolbar button, with safer links & working 'copy address')"
+   },
+   "extName": {
+      "description": "Extension name",
+      "message": "Send using Gmail™ (no button)"
+   },
+   "optConsumerGmail": {
+      "message": "For the consumer Gmail, leave the field empty.)"
+   },
+   "optDomain": {
+      "message": "(Enter just the base domain your_domain.com instead of www.your_domain.com."
+   },
+   "optDomainError": {
+      "description": "The user provided a wrong domain string",
+      "message": "Does not look like a valid domain - $1\nPlease re-enter"
+   },
+   "optEmailThis": {
+      "message": "Add an 'Email this' command to the right-click menu"
+   },
+   "optEnableShortcut": {
+      "message": "Use Ctrl+Shift+M to email the current page"
+   },
+   "optGoogleApps": {
+      "message": "Enter the domain name of your Google Apps™ account:"
+   },
+   "optInTab": {
+      "message": "In a new tab"
+   },
+   "optInWin": {
+      "message": "In a new window"
+   },
+   "optNoteReload": {
+      "message": "Note: you might need to reload tabs for the options to take effect"
+   },
+   "optOpenNewWindow": {
+      "message": "Open the composition interface:"
+   },
+   "optSave": {
+      "message": "Save"
+   }
+}

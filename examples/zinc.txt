@@ -1,0 +1,12 @@
+javascript:(function()%7Bdocument.body.appendChild(document.createElement(%27script%27)).src%3D%27https://zinc.io/docs/assets/js/bookmarklet.js%27%3B%7D)()%3B
+
+var ddm = twisterController.twisterModel.viewHandle.dimensionDisplayMap;
+var dimvals = twisterController.twisterVariationsData.dimensionValuesDisplay[twisterController.twisterModel.twisterState.currentASIN];
+var mmap = "";
+for (var i=0;i<ddm.length;i++){
+    mmap += ("   " + ddm[i]+": "+dimvals[i]+"\n");
+};
+mmap += "\n";
+
+
+var x=window.prompt("Selected product variant is\n"+mmap+"Use this ASIN to order via Zinc:",twisterController.twisterModel.twisterState.currentASIN);

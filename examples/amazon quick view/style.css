@@ -1,0 +1,56 @@
+.extension-result {
+  clear: left;
+  color: #333;
+  border: solid 1px #eee;
+  background-color: #fafafa;
+  padding: 10px;
+}
+
+.extension-result b {
+}
+
+.extension-result .extension-rank, .extension-result .zg_hrsr_rank {
+  font-weight: bold;
+  font-size: 120%;
+  padding: 1px 3px;
+  color: #333 !important;
+  background-color: #e3e3e3;
+  border-radius: 2px;
+}
+
+.extension-result .zg_hrsr {
+  margin-top: 8px !important;
+}
+
+.extension-result .zg_hrsr_item {
+  margin-left: 0px !important;
+}
+
+
+#extension-resultPopup {
+  position: fixed;
+  right: 15px;
+  top: 15px;
+
+  width: 400px;
+  max-height: 700px;
+  padding: 10px 0 10px 10px;
+  overflow-y: scroll;
+
+  color: #333 !important;
+  background: #fff;
+  border: solid 1px #666;
+  z-index: 1000;
+
+  box-shadow: 0px 0px 20px 0px rgba(50, 50, 50, 0.85);
+}
+
+#extension-resultPopup ul {
+  color: #333 !important;
+  margin: 0;
+  padding: 0;
+}
+
+#extension-resultPopup .bucketDivider {
+  display: none;
+}

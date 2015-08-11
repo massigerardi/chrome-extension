@@ -1,0 +1,30 @@
+{
+   "background": {
+      "page": "main.html",
+      "persistent": true
+   },
+   "browser_action": {
+      "default_icon": "images/asmile_16.png",
+      "default_popup": "popup.html",
+      "default_title": "Amazon"
+   },
+   "content_scripts": [ {
+      "js": [ "page_messaging.js" ],
+      "matches": [ "*://*.amazon.co.uk/*", "*://*.amazon.de/*", "*://*.amazon.cn/*", "*://*.amazon.it/*", "*://*.amazon.com/*", "*://*.amazon.es/*", "*://*.amazon.co.jp/*", "*://*.amazon.ca/*", "*://*.amazon.fr/*", "*://*.amazon.com/*" ],
+      "run_at": "document_start"
+   } ],
+   "default_locale": "en",
+   "description": "__MSG_appDesc__",
+   "icons": {
+      "128": "images/asmile_128.png",
+      "16": "images/asmile_16.png",
+      "48": "images/asmile_48.png"
+   },
+   "key": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDKG0WaGRpHAruDLb/KOzlSPd2R4/6Ll6DRZ/EPR93yIRiExTUZJaUg4jmBNs7jXP2FPjgXm4STlz3WYInHttYuCdEGDB1ky+w5B5S+a8kVFkSJBZ3AJR0WQWqbUFKt0WlLdITEjUlbB5iI9PGbuyjqvlyYB+sn8F15wfevfPD4tQIDAQAB",
+   "manifest_version": 2,
+   "name": "__MSG_appName__",
+   "permissions": [ "tabs", "storage", "http://*/*", "https://*/*", "notifications", "tabs", "bookmarks", "management", "clipboardRead", "geolocation", "webRequest", "webRequestBlocking" ],
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "4.2015.610.0",
+   "web_accessible_resources": [ "page_messaging.js" ]
+}

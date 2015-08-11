@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Send Using Gmail Update</title>
+<style>
+  * { margin:0; padding:0; }
+  body { 
+    font-family: Helvetica, Arial, sans-serif;
+    padding:30px;
+    font-size:20px;
+    line-height:150%;
+    width: 800px; 
+    margin: 0 auto;
+  }
+  h1 {
+    margin:0 0 40px;
+    font-size:60px;
+  }
+  h1 img {
+    width: 64px;
+    height: 64px;
+    float: left;
+    position: relative;
+    top: -16px;
+    margin-right: 20px;
+  }
+  p {
+    padding:0 0 20px;
+  }
+  h2 {
+    margin:35px 0 10px;
+  }
+  ul {
+    margin-left:22px;
+  }
+  #emoji-test {
+    margin-bottom:20px;
+  }
+  a {
+    color: rgb(213, 151, 19); /* #c31000; */
+    color: #c31000; 
+  }
+  #info {
+  	color:#999;
+  	margin-top:30px;
+  	font-size:80%;
+  }
+  
+
+  input {
+    width:200px;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 18px;
+    padding: 2px 5px;
+  }
+
+  small {
+    color: #999;
+    margin-top: 5px;
+  }
+
+  .button {
+    background: #ececec;
+    padding: 3px 5px;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+  }
+
+  .steps {
+    overflow: hidden;
+  }
+  .steps div {
+    margin: 5px 0;
+  }
+  .steps img {
+    width: 350px;
+    height: 300px;
+    float: right;
+    position: relative;
+    top: -20px;
+  }
+
+  .yellow {
+    color: rgb(233, 178, 4);
+  }
+
+  .big {
+    font-size: 40px;
+  }
+
+@media (max-width: 1366px) {
+  body { zoom:0.8; }
+  h1   { zoom:0.8; }
+}
+@media (min-width: 1367px) {
+  body { zoom:0.9;}
+}
+@media (min-width: 1601px) {
+  body { zoom:1; }
+}
+@media (min-width: 1921px) {
+  body { zoom:1.15; }
+}
+
+</style>  
+</head>
+<body>
+  <h1><img src="images/gmail-extension-128.png">Send Using Gmail<span class="yellow">™</span></h1>
+  
+
+  <div style="font-size:30px;padding:10px 0 10px;">Your favorite extension has just got a <i>huge</i> update :)</div>
+  
+  <h2>Send beautifully formatted articles <span class="yellow big">!</span></h2>
+  <div></div>
+
+  <div class="steps">
+    <img src="images/update.png" />
+    <div>Example to <b>select<i style="color:#666">&amp;</i>send</b> an article with images:</div>
+    <div><b>1)</b> Select a part of an article</div>
+    <div><b>2)</b> Right-click on the text to bring up the menu</div>
+    <div><b>3)</b> Click on 'Email this selection'</div>
+  </div>
+
+  <h2 style="margin-top:-100px">How can I say thanks <span class="yellow big">?</span></h2>
+  <ul id="footer">
+  	<li>If you <i>feel awesome</i>, <a href="https://chrome.google.com/webstore/detail/send-using-gmail-no-button/ahldefgplekckalfcolhhnljbbgaiboc/reviews">say thanks in a review</a></li>
+    <li>For the <i>adventurous</i>, there's an <a href="./options.html">options page</a></li>
+    <li>You can also report <a href="https://chrome.google.com/webstore/support/ahldefgplekckalfcolhhnljbbgaiboc#bug">bugs</a> and ask <a href="https://chrome.google.com/webstore/support/ahldefgplekckalfcolhhnljbbgaiboc#question">questions</a></li>
+  </ul>
+
+  <div id="info">If this page keeps opening up, it's a bug. Contact me at <i>aproject180@gmail.com</i></div>
+  
+  <script src="js/mailto.js"></script>
+  <script src="js/paste_selection.js"></script>
+</body>
+</html>

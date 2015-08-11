@@ -1,0 +1,44 @@
+{
+   "extDesc": {
+      "description": "Descrizione dell'estensione",
+      "message": "Usa Gmail™ per comporre messaggi e-mail (modificata per eliminare bottoni superflui e correggere alcuni problemi)"
+   },
+   "extName": {
+      "description": "Nome dell'estensione",
+      "message": "Invia con Gmail™ (niente bottoni!)"
+   },
+   "optConsumerGmail": {
+      "message": "Per il comune servizio Gmail, lasciare vuoto il campo.)"
+   },
+   "optDomain": {
+      "message": "(Inserire solo il dominio base: tuo_dominio.it invece di www.tuo_dominio.it"
+   },
+   "optDomainError": {
+      "description": "L'utente ha fornito una stringa errata per il nome di dominio",
+      "message": "$1 non sembra un nome di dominio valido\nRiprovare"
+   },
+   "optEmailThis": {
+      "message": "Aggiungi il comando 'Invia via e-mail' al menu contestuale (tasto destro)."
+   },
+   "optEnableShortcut": {
+      "message": "Ctrl-Maiusc-M invia la pagina via e-mail."
+   },
+   "optGoogleApps": {
+      "message": "Nome di dominio associato al tuo account di Google Apps™:"
+   },
+   "optInTab": {
+      "message": "In una nuova tab"
+   },
+   "optInWin": {
+      "message": "In una nuova finestra"
+   },
+   "optNoteReload": {
+      "message": "Nota: potrebbe essere necessario ricaricare le pagine perché le modifiche abbiano effetto."
+   },
+   "optOpenNewWindow": {
+      "message": "Apri l'interfaccia di scrittura:"
+   },
+   "optSave": {
+      "message": "Salva"
+   }
+}

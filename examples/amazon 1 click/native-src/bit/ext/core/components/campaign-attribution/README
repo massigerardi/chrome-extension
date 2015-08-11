@@ -1,0 +1,5 @@
+Note - this file is copied wholesale from UBPAppsJS/browser-scripts/source/ubp-feature-campaign-attribution.js
+
+In some beautiful future, the BITOneButtoNCore package will somehow depend on UBPAppsJS package and pull it in, but as the dependency structure of the extension is already somewhat confusing, and the only use case for this is campaign attribution and its underlying infrastructure, it's a copy-paste situation.
+
+Rather than edit this file, edit the one in UBPAppsJS and copy here (branching where appropriate), so that the protocols do not diverge.

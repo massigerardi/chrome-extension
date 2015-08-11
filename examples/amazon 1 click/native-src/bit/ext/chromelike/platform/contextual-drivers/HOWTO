@@ -1,0 +1,79 @@
+/**
+ * Purpose: Purpose of this file is to provide a single source on how, and more importantly
+ * why, we should wire up our manager->driver content-scripts in a particular way. It will also
+ * provide a conceptual framework for thinking about content-scripts.
+ */
+
+/** 
+ * Tips from a pro i.e. Pro Tips && Definitions:
+ *
+ * Go ahead and turn JS syntax highlighting on in whatever IDE you're using.
+ * CS = content-script
+ * JSE = JavaScript Engine
+ * REPL = read-eval-print-loop
+ * based on a true story: http://stackoverflow.com/questions/12177607/how-do-i-add-or-remove-chrome-extension-content-script-javascript-files-dynami
+ */
+
+/**
+ * Once a CS is parsed, the JSE no longer uses it. Even if you could remove
+ * a content-script, the objects and event listeners created are already in 
+ * memory, so it'd be a more or less useless operation if the goal is to "undo"
+ * whatever the CS did. We should instead think about CS injections as a REPL,
+ * where each injection is a command to the interpreter.
+ *
+ * The first time a CS is injected, it will 
+ *     -create all the objects it needs, attaching them to the window.
+ *     -register any event listeners/handlers
+ *
+ * Subsequent injection of the same CS should do the following:
+ *     -create and overwrite all objects, attaching them to the window.
+ * 
+ * Event listeners and handlers should not directly reference the underlying
+ * object, but should instead be wrapped in anonymously defined functions,
+ * which reference the window object property. This way, the JSE always uses
+ * the latest object in memory. It also means that the old objects will be
+ * garbage collected when overwritten.
+ *
+ * In other words, all drivers should have a "handler" interface for the main
+ * listener that they register (for listening to messages from 1-BA), and then
+ * they register the function like this:
+ */
+
+//Need to check that we've registered a handler before creating the handler.
+var firstInjection = !window.ExampleDriver; 
+
+//Create (or overwrite) the ExampleDriver's handler.
+window.ExampleDriver = {
+    handler : function (msg,sender,cb) {
+        if (msg.mType === "Cha-cha") {
+            window.ExampleManagerInstance.doTheChaCha(msg.args);
+        }
+    }
+};
+
+//Register the handler only once.
+if (firstInjection) {
+    chrome.runtime.onMessage.addListener(function(){
+        window.ExampleDriver.handler.apply(window.ExampleDriver,arguments);
+    });
+}
+
+/**
+ * This approach will ensure that we are referencing the latest objects,
+ * and will also make the Drivers more testable. The unfortunate downside
+ * with this approach is that it appears more stateful than previous
+ * implementations. However, given the way that Chrome "rewires" the 1-BA
+ * with the previous CS runtime, we do have state that needs to be tracked,
+ * and thus the very nature of the problem that we're solving in the first
+ * place has state, whether we choose to acknowledge it (as we will do now
+ * with these changes) or not.
+ *
+ * Also note that this also applies to any listeners/handlers attached
+ * to the window object as well. Please see sanbox-driver.js for a good
+ * example on how to apply this approach for that API.
+ *
+ * If you're creating a new content-script, then you should look at all
+ * the managers and drivers before starting any development. Whenever
+ * we're manipulating the user's DOM we want to be 100% confident we know
+ * what the heck we're doing/what the expected behavior of the CS is.
+ */

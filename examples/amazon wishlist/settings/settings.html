@@ -1,0 +1,64 @@
+<!HTML>
+<html>
+<head>
+<title>string(uwl-ext-chrome-settings-title)</title>
+
+<meta http-equiv="Content-Type" content="text/html;" encoding="utf-8">
+
+<link rel="stylesheet" type="text/css" href="settings.css">
+</head>
+<body>
+  <div id="content">
+    <div id="headers">
+      <img align="center" class="left" id="amzLogo" src="images/${locale}/amazon.png">
+      <img align="center" class="right" id="wlLogo" src="images/${language}/wishlist.png">
+      <div class="clear"></div>
+    </div>
+  <h1>string(uwl-ext-chrome-settings-title)</h1>
+  <div class="box">
+    <div class="settingsListHeader">string(uwl-ext-product-cue)</div>
+    <ul class="settingsList">
+      <li>
+        <input id="notify" type="checkbox"></input> <label for="notify">string(uwl-ext-chrome-enable-animation)</label>
+      </li>
+    </ul>
+    <div class="settingsListHeader">string(uwl-ext-location)</div>
+    <ul class="settingsList">
+      <li>
+        string(uwl-ext-set-default-location)
+        <select id="locale">
+          <option value="us">Amazon.com</option>
+          <option value="ca">Amazon.ca</option>
+          <option value="uk">Amazon.co.uk</option>
+          <option value="de">Amazon.de</option>
+          <option value="fr">Amazon.fr</option>
+          <option value="jp">Amazon.co.jp</option>
+          <option value="cn">Amazon.cn</option>
+          <option value="it">Amazon.it</option>
+          <option value="es">Amazon.es</option>
+        </select>
+      </li>
+    </ul>
+    <!-- __DEBUG__ -->
+  </div>
+  <br/>
+  <div style="height:30px;">
+    <input id="submit" type="image" src="images/${language}/save.png"></input>
+    <span id="saved">string(uwl-ext-saved)</span>
+  </div>
+
+  <div style="margin-top:100px;text-align:center" id="footer">
+    <img src="images/${locale}/footer.gif"><br>
+    string(uwl-ext-copy-footer)
+  </div>
+  </div>
+
+  <script src="/backgroundScripts/browserSpecific.js"></script>
+  <script src="/backgroundScripts/stringProcessor.js"></script>
+  <script src="/backgroundScripts/strings.js" charset="utf-8"></script>
+  <script src="/backgroundScripts/settingsHandler.js"></script>
+  <script src="/backgroundScripts/localeTools.js"></script>
+  <script src="settings.js"></script>
+
+</body>
+</html>

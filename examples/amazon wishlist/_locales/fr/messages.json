@@ -1,0 +1,11 @@
+{
+   "uwl_ext_chrome_browseraction": {
+      "message": "Ajouter à votre Liste d'envies Amazon"
+   },
+   "uwl_ext_chrome_description": {
+      "message": "Ajoutez des articles à votre Liste d'envies Amazon depuis n'importe quel site Internet"
+   },
+   "uwl_ext_chrome_name": {
+      "message": "Ajouter à votre Liste d'envies Amazon"
+   }
+}
