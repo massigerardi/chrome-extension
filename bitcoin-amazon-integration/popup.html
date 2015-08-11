@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Getting Started Extension's Popup</title>
+    <style>
+      body {
+        font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
+        font-size: 100%;
+      }
+      #status {
+        /* avoid an excessively wide status text */
+        white-space: pre;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        min-width: 500px;
+        max-width: 700px;
+      }
+      #bitcoin {
+        font-weight: bold;
+      }
+    </style>
+    <script src="popup.js"></script>
+  </head>
+  <body>
+    <div id="status">
+      <div>Name: <span id="title"></span></div>
+      <div>Description: <span id="desc"></span><br>Code: <span id="code"></span></div>
+      <div>Price: BTC <span id="bitcoin"></span>&nbsp;[EUR <span id="euro"></span>]</div>
+      <div><img id="image-result" hidden></div>
+    </div>
+  </body>
+</html>
+
