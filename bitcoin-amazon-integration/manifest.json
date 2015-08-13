@@ -6,21 +6,24 @@
   "version": "1.0",
 
   "browser_action": {
-    "default_icon": "icon.png",
+    "default_icon": "images/icon.png",
     "default_popup": "popup.html"
   },
 
   "permissions": [
-    "activeTab",
-    "https://blockchain.info/*"
+    "tabs", 
+    "notifications",
+    "https://blockchain.info/*",
+    "storage"
   ],
 
   "content_scripts": [
     {
       "matches": ["*://*.amazon.de/*"],
-      "js": ["content.js"]
+      "js": ["jquery-1.9.1.js", "content.js"]
     }
-  ]
+  ],
+  "web_accessible_resources": [ "inject.js" ]
 
 
 }

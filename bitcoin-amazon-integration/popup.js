@@ -4,6 +4,9 @@
 
 //http://www.amazon.de/gp/product/B00QTY5IUI/
 
+getCurrentTabUrl(function(url) {
+  renderStatus(url);
+});
 
 /**
  * Get the current URL.
@@ -34,50 +37,45 @@ function renderStatus(tab) {
   var urlRegex = /^https?:\/\/(?:[^\.]+\.)?amazon\.de/;
   var url = tab.url
   if (urlRegex.test(url)) {
-      chrome.tabs.sendMessage(tab.id, { text: "prepare_code" }, null);
-      chrome.tabs.sendMessage(tab.id, { text: "get_price" }, renderPrice);
-      chrome.tabs.sendMessage(tab.id, { text: "get_product" }, renderProduct);
-      chrome.tabs.sendMessage(tab.id, { text: "get_code" }, renderCode);
-//      chrome.tabs.sendMessage(tab.id, { text: "get_image" }, renderImage);
+      chrome.runtime.onConnect.addListener(function (port) {
+        port.onMessage.addListener(function (msg) {
+          if (msg.product != null) {
+            console.log(msg.product)
+            renderProduct(msg.product);
+          }
+        });
+    });
+    chrome.tabs.sendMessage(tab.id, { text: "get_product" }, null);
   }
 
 }
 
-function renderCode(product) {
-  document.getElementById('code').textContent = product.code;
-  document.getElementById('desc').textContent = product.desc;
+function renderProduct(product) {
+  $('#code').text(product.code);
+  $('#desc').text(product.desc);
+  $('#title').text(product.title);
+  renderPrice(product.price)
+  renderImage(product.image)
 }
 
 function renderPrice(value) {
   euro = value
   currency = euro.substring(0, 3)
   amount = euro.substring(4, euro.lenght).replace(",",".")
-  document.getElementById('euro').textContent = amount;
+  $('#euro').textContent = amount;
   var searchUrl = 'https://blockchain.info/tobtc?currency='+currency+'&value='+amount
   var x = new XMLHttpRequest();
   x.open('GET', searchUrl);
   x.onload = function() {
     bitcoin = x.responseText
-    document.getElementById('bitcoin').textContent = bitcoin;
+    $('#bitcoin').text(bitcoin);
   }
   x.send()
 
 }
 
-function renderProduct(product) {
-  document.getElementById('title').textContent = product;
-}
-
 function renderImage(imageUrl) {
-  var imageResult = document.getElementById('image-result');
-      imageResult.src = imageUrl;
-      imageResult.hidden = false;
+  var imageResult = $('#image-result');
+  imageResult.attr('src', imageUrl);
+  imageResult.show();
 }
-
-
-document.addEventListener('DOMContentLoaded', function() {
-  
-  getCurrentTabUrl(function(url) {
-    renderStatus(url);
-  });
-});
