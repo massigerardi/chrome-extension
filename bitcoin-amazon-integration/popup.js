@@ -40,7 +40,7 @@ function renderStatus(tab) {
       chrome.runtime.onConnect.addListener(function (port) {
         port.onMessage.addListener(function (msg) {
           if (msg.product != null) {
-            console.log(msg.product)
+            console.log("popup: "+msg.product)
             renderProduct(msg.product);
           }
         });
@@ -54,15 +54,23 @@ function renderProduct(product) {
   $('#code').text(product.code);
   $('#desc').text(product.desc);
   $('#title').text(product.title);
-  renderPrice(product.price)
-  renderImage(product.image)
+  $('#image-result').attr('src', product.image)
+  $('#product').show()
+  if (product.active) {
+    renderPrice(product.price)
+    $('#order').show()
+  } else {
+    $('#price').text(product.price);
+    $('#msg').text(product.message);
+    $('#message').show()
+  }
 }
 
 function renderPrice(value) {
   euro = value
   currency = euro.substring(0, 3)
   amount = euro.substring(4, euro.lenght).replace(",",".")
-  $('#euro').textContent = amount;
+  $('#euro').text(amount);
   var searchUrl = 'https://blockchain.info/tobtc?currency='+currency+'&value='+amount
   var x = new XMLHttpRequest();
   x.open('GET', searchUrl);
@@ -74,8 +82,3 @@ function renderPrice(value) {
 
 }
 
-function renderImage(imageUrl) {
-  var imageResult = $('#image-result');
-  imageResult.attr('src', imageUrl);
-  imageResult.show();
-}

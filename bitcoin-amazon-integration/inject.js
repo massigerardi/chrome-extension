@@ -6,19 +6,35 @@ event.initCustomEvent("BitcoinProductDescription", true, true, {"passback":produ
 window.dispatchEvent(event);
 
 function getProductDescription() {
-    var ddm = twisterController.twisterModel.viewHandle.dimensionDisplayMap;
-    var dimvals = twisterController.twisterVariationsData.dimensionValuesDisplay[twisterController.twisterModel.twisterState.currentASIN];
-    var mmap = "";
-    for (var i=0;i<ddm.length;i++){
-        mmap += ("   " + ddm[i]+": "+dimvals[i]+"\n");
-    };
-    var code = twisterController.twisterModel.twisterState.currentASIN
+    var mmap = ""
+    var code = ""
+    var active = true
+    var message = ''
+    var cartCode = document.getElementById('ASIN').value;
+    if (typeof twisterController != "undefined") {
+        code = twisterController.twisterModel.twisterState.currentASIN
+        if (cartCode != code) {
+            code = ''
+            message = 'Please, select a valid product'
+            active = false
+        } else {
+            var ddm = twisterController.twisterModel.viewHandle.dimensionDisplayMap;
+            var dimvals = twisterController.twisterVariationsData.dimensionValuesDisplay[twisterController.twisterModel.twisterState.currentASIN];
+            for (var i=0;i<ddm.length;i++){
+                mmap += ("\n"+ddm[i]+": "+dimvals[i]);
+            };
+        }
+    } else {
+        code = cartCode
+    }
     var product = {
+        active: active,
         desc: mmap,
         code: code,
         price: 'EUR 0.0',
         title: '',
-        image: ''
+        image: '',
+        message: message
 
     }
     return product

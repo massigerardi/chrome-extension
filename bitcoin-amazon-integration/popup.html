@@ -6,8 +6,6 @@
       body {
         font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
         font-size: 100%;
-      }
-      #status {
         /* avoid an excessively wide status text */
         white-space: pre;
         text-overflow: ellipsis;
@@ -18,16 +16,26 @@
       #bitcoin {
         font-weight: bold;
       }
+      #code {
+        font-size: -2;
+      }
     </style>
     <script src="popup.js"></script>
     <script src="jquery-1.9.1.js"></script>
   </head>
   <body>
-    <div id="status">
-      <div>Name: <span id="title"></span></div>
-      <div>Description: <span id="desc"></span><br>Code: <span id="code"></span></div>
-      <div>Price: BTC <span id="bitcoin"></span>&nbsp;[EUR <span id="euro"></span>]</div>
-      <div><img id="image-result" hidden></div>
+    <div id="product" style="display: none">
+      <div><img id="image-result"><span id="title"></span></div>
+      <div><span id="desc"></span></div>
+    </div>
+    <div id="message" style="display: none">
+      <div><span id="price"></span></div>
+      <div><span id="msg"></span></div>
+    </div>
+    <div id="order" style="display: none">
+      <div>BTC <span id="bitcoin"></span>&nbsp;[EUR <span id="euro"></span>]</div>
+      <button value="order">Add to Bitcoin Cart</button>
+      <button value="order">Order Now</button>
     </div>
   </body>
 </html>
