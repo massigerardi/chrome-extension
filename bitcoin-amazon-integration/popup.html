@@ -6,6 +6,8 @@
       body {
         font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
         font-size: 100%;
+      }
+      #bitcoin {
         /* avoid an excessively wide status text */
         white-space: pre;
         text-overflow: ellipsis;
@@ -24,6 +26,7 @@
     <script src="jquery-1.9.1.js"></script>
   </head>
   <body>
+    <div id="main">
     <div id="product" style="display: none">
       <div><img id="image-result"><span id="title"></span></div>
       <div><span id="desc"></span></div>
@@ -36,6 +39,7 @@
       <div>BTC <span id="bitcoin"></span>&nbsp;[EUR <span id="euro"></span>]</div>
       <button value="order">Add to Bitcoin Cart</button>
       <button value="order">Order Now</button>
+    </div>
     </div>
   </body>
 </html>
