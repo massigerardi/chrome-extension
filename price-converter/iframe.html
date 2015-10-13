@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Chrome Currency Converter - Mini conveter</title>
+	<style>
+	body {
+		font: normal 12px arial, serif;
+		width: 325px;
+		color: #333;
+		text-align: center;
+		background: rgba(255,255,255,.8);
+		margin: 0;
+		padding: 10px;
+		overflow: hidden;
+	}
+	strong {
+		font-size: 14px;
+		color: green;
+		float: right;
+		margin-top: 5px;
+		font-weight: bold;
+	}
+	input,
+	button {
+		float: left;
+	}
+	
+	select {
+		float: right;
+		
+	}
+	
+	input, button, select {
+		margin: 0;
+	}
+	
+	div {
+		margin: 5px 0;
+	}
+	
+	#amount {
+		width: 5em;
+	}
+	h2 {
+		font-size: 12px;
+		font-weight: bold;
+		color: #6f6f6f;
+		margin: 0 0 5px 0;
+	}
+	div {
+		overflow: hidden;
+		
+		}
+	
+	p {
+		font-size: 11px;
+		text-align: left;
+		color: #999;
+	}
+	a {
+		color: #999;
+		
+	}
+	button {
+		font-weight:bold;
+	}
+	</style>
+</head>
+
+<body>
+	<h2>Chrome Currency Converter's Mini Converter</h2>
+	
+		<div>
+			<input autofocus id="amount" type="text" placeholder="Amount" autocomplete="false"/> 
+			<select id="currency"></select>
+		</div>
+		<div>
+			<button id="convert">Convert</button>
+			<strong id="result">&nbsp;</strong>
+		</div>
+
+	<!--  onclick="chrome.tabs.create({'url' : 'chrome-extension://'+location.hostname+'/options.html'});" -->
+	<p>
+	Enter amount then press ENTER (or click the button) to convert it to the base currency.</p>
+
+	<p>
+	You can close this mini converter by pressing ESCape. To change the target (base) currency, <a href="options.html" target="_blank" title="Options">click here</a> for options.</p>
+<script src="iframe.js" type="text/javascript"></script>
+</body>
+</html>

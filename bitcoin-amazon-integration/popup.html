@@ -7,7 +7,7 @@
         font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
         font-size: 100%;
       }
-      #bitcoin {
+      #main {
         /* avoid an excessively wide status text */
         white-space: pre;
         text-overflow: ellipsis;
@@ -26,9 +26,10 @@
     <script src="jquery-1.9.1.js"></script>
   </head>
   <body>
+    <div id="alert" style="display: none">A message go here</div>
     <div id="main">
     <div id="product" style="display: none">
-      <div><img id="image-result"><span id="title"></span></div>
+      <div><img id="image-result" src=""><span id="title"></span></div>
       <div><span id="desc"></span></div>
     </div>
     <div id="message" style="display: none">

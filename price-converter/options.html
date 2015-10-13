@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Bitcoin Currency Converter - Bcoiner.com </title>
+	<style type="text/css" media="all">
+	body {
+		background: white;
+		color: #111;
+		font: normal 12px arial, serif;
+	}
+	#wrapper {
+		width: 650px;
+		margin: auto;
+	}
+	fieldset {
+		margin: 10px 0;
+		padding: 10px;
+		border: 1px solid #aaa;
+		background: #f2f2f2;
+	}
+	legend {
+		font-weight: bold;
+		background: white;
+		padding: 2px 10px;
+	}
+	table {
+		margin: 10px 0;
+	}
+	td, th {
+		text-align: center;
+		padding: 5px 10px;
+		text-align: left;
+		vertical-align: top;
+	}
+	th {
+		text-align: right;
+		width: 20em;
+		color: #333;
+	}
+	textarea {
+		height: 10em;
+		width: 18em;
+		display: block;
+		margin-top: 5px;
+	}
+	small {
+		font-size: 11px;
+		display: block;
+		margin-top: 5px;
+		color: #999;
+	}
+	address {
+		margin-top: 20px;
+	}
+	.selected {
+		background: yellow;
+		font-weight:bold;
+	}
+
+	span {
+		color: green;
+		display: none;
+	}
+	a {
+		color: #00c;
+	}
+
+	#dis-domains-container,
+	#domains-container {
+		display: none;
+	}
+	</style>
+</head>
+
+<body>
+
+<div id="wrapper">
+<h2>Bitcoin Currency Converter &rarr; Bcoiner.com</h2>
+
+
+<p>Note: Select any currency below including BTC Bitcoin. You can popup the mini converter for instant (custom) conversions by pressing <strong>ALT+SHIFT+CTRL+C</strong> in any page.</p>
+
+
+	<fieldset>
+	<legend>Basic options</legend>
+<table cellspacing="0">
+	<tr>
+		<th>Base currency</th>
+		<td><select id="currency" name="currency"></select></td>
+	</tr>
+
+
+	<tr>
+		<th>Domains enabled for</th>
+		<td>
+			<label><input type="radio" name="usedomains" /> All domains</label>  <label><input name="usedomains" type="radio"/>User defined domains</label>
+
+			<div id="domains-container">
+				<textarea name="domains" id="domains">
+amazon.co
+ebay.
+</textarea>
+				<small>
+				Extension will scan for location matches for the entries above.
+
+				</small>
+			</div>
+		</td>
+	</tr>
+
+		<tr>
+			<th>Domains disabled for</th>
+			<td>
+				<label><input type="radio" name="dis-usedomains" /> None</label>  <label><input name="dis-usedomains" type="radio"/>User defined domains</label>
+
+				<div id="dis-domains-container">
+					<textarea name="dis-domains" id="dis-domains"></textarea>
+					<small>
+					Extension will scan for location matches for the entries above.
+					</small>
+				</div>
+			</td>
+		</tr>
+
+
+</table>
+
+</fieldset>
+
+
+<fieldset>
+<legend>Visual</legend>
+<table cellspacing="0">
+	<tr>
+		<th>Display icon</th>
+		<td>
+			<input type="checkbox" name="show-icon" id="icon" />
+			<small>Wether to display the icon in the address bar when conversions take place.</small>
+		</td>
+	</tr>
+
+	<tr>
+		<th>Display origin price</th>
+		<td>
+			<input type="checkbox" name="original" id="original" />
+			<small>Checking this will display the prices in their original form in parenthesis.</small>
+			</td>
+
+	</tr>
+
+
+
+
+	<tr>
+		<th>Highlight changes</th>
+		<td>
+			<input type="checkbox" name="highlight" id="highlight" />
+			<small>Checking this will highlight (and fade out) the converted prices.</small>
+		</td>
+
+	</tr>
+	</table>
+	</fieldset>
+
+	<fieldset>
+	<legend>Formatting</legend>
+	<table cellspacing="0">
+	<tr>
+		<th>Round prices</th>
+		<td>
+			<select id="round">
+				<option value="0">Never</option>
+				<option value="-1">Always</option>
+				<option value="5">If price >= 5</option>
+				<option value="10">If price >= 10</option>
+				<option value="100">If price >= 100</option>
+				<option value="1000">If price >= 1000</option>
+			</select>
+		</td>
+	</tr>
+
+	<tr>
+		<th>Always separate price from symbol</th>
+		<td>
+			<input type="checkbox" name="symbol" id="separate-symbol" />
+		</td>
+	</tr>
+
+	<tr>
+		<th>Decimal separator</th>
+		<td>
+			<select id="format-decimal">
+				<option value="">Auto</option>
+				<option value=",">,</option>
+				<option value=".">.</option>
+			</select>
+		</td>
+	</tr>
+
+	<tr>
+		<th>Thousands separator</th>
+		<td>
+			<input type="checkbox" name="thousands" id="thousands" />
+		</td>
+	</tr>
+
+	<tr>
+		<th>Symbol position</th>
+		<td>
+			<select id="format-position">
+				<option value="">Auto</option>
+				<option value="left">Left</option>
+				<option value="rigth">Right</option>
+			</select>
+		</td>
+	</tr>
+
+	</table>
+</table>
+</fieldset>
+
+
+<div style="float: left;">
+<button id="save" style="font-weight: bold;">Save options</button> <span id="say">Changed</span>
+</div>
+
+<div style="float: right;">
+<address style="margin: 0; margin-top: 6px; color: #6f6f6f; font-size: 11px; font-style: normal;">Get your free Bitcoin Wallet at <a href="https://www.bcoiner.com/" target="ext">Bcoiner.com</a> safe free bitcoin wallet</address>
+</div>
+
+</div>
+<script src="options.js" type="text/javascript"></script>
+</body>
+</html>

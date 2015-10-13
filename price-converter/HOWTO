@@ -1,0 +1,10 @@
+ADD NEW CURRENCY
+---------------------------
+
+1. Tiger
+2. SGL (to go to sgl dirs)
+3. vi 25.sgl and add currency
+4. tank 25.sgl (same directory to fetch)
+6. options.html: add to list
+7. ccc.js: add to list
+8. Change version on manifest / zip and upload

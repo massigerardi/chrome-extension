@@ -14,15 +14,28 @@ chrome.runtime.onMessage.addListener(function(msg, sender, sendResponse) {
 
 function handleEvent(e) {
     var product = populate(e.detail.passback);
-    console.log(product)
     chrome.runtime.connect().postMessage({ product: product })
 }
 
 function populate(product) {
     if (product) {
-        product.price = $('#priceblock_ourprice').text()
         product.title = $('#productTitle').text()
-        product.image = $('#imageBlock').find('img').attr('src')
+        if ($('#priceblock_ourprice').length) {
+            product.price = $('#priceblock_ourprice').text()
+        } else if ($('.offer_price').length) {
+            product.price = $('.offer_price').text()
+        } else if ($('#priceblock_saleprice').length) {
+            product.price = $('#priceblock_saleprice').text()
+        } else if ($('#priceblock_dealprice').length) {
+            product.price = $('#priceblock_dealprice').text()
+        } else {
+            product.active = false
+        } 
+        if ($('#imageBlock').length && $('#imageBlock').find('img')) {
+            product.imagesrc = $('#imageBlock').find('img').attr('src')
+        } else {
+            product.imagesrc = chrome.extension.getURL('images/wrong.png')
+        }
     }
-    return product   
+    return product
 }
