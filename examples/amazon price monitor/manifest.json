@@ -7,15 +7,14 @@
       "default_popup": "popup.html"
    },
    "content_security_policy": "script-src 'self' https://pricemono.com; object-src 'self'",
-   "default_locale": "en",
-   "description": "__MSG_appDesc__",
+   "description": "Amazon Price Monitor",
    "icons": {
       "128": "icon-128.png",
       "48": "icon-48.png"
    },
    "key": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC4YnhNSNC+UPgk62j+5GkYZqHe6UOmqWyOfqQfdHiA/+rVgLLnQHDCrfV2tBAXhR/o/i2o1FjJl2k5WGEc68Q1xfH2udSyIPht6cOtPN8Kq1It9RLJUtmjtfkZU9cKM9768+T3s4NuC4lQxmPygspw/zxSU6nRWG1ZVxoWKLNkJwIDAQAB",
    "manifest_version": 2,
-   "name": "__MSG_appName__",
+   "name": "Amazon Price Monitor",
    "permissions": [ "http://pricemono.com/", "tabs", "notifications" ],
    "short_name": "PriceMonitor",
    "update_url": "https://clients2.google.com/service/update2/crx",

@@ -35,7 +35,11 @@ function clearItems() {
 
 function loadItems() {
   var items = localStorage['items']
-  return JSON.parse(items);
+  console.log(items)
+  if (items) {
+    return JSON.parse(items);  
+  }
+  return {}
 }
 
 function contains(product) {
@@ -70,8 +74,11 @@ function addToCart() {
   var items = loadItems()
   var id = '#'+currentProduct.code;
   items[currentProduct.code] = currentProduct
-  items['size'] = items['size'] + 1
-  items['total'] = calculatePrice(items)
+  if (!items.size) {
+    items.size = 0
+  }
+  items.size + 1
+  items.total = calculatePrice(items)
   store(items)
   $('#itemsnumber').text(items['size']);
   $('#totalprice').text(items['total']);
@@ -165,7 +172,6 @@ function getBitcoinPrice(product) {
 
 function calculatePrice(items) {
   var total = 0.0
-  var len = items.length;
   for (var key in items) {
     if (items.hasOwnProperty(key)) {
       if (key == 'size' || key == 'total') {
