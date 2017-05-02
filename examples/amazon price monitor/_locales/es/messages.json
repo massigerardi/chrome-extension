@@ -1,0 +1,10 @@
+{
+   "appDesc": {
+      "description": "App description.",
+      "message": "Monitore los precios de Amazon y Ebay, compre solo a la mejor oferta!"
+   },
+   "appName": {
+      "description": "App name.",
+      "message": "Monitor de precios para Amazon & Ebay"
+   }
+}
